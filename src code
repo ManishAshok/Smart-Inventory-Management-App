@@ -1,0 +1,125 @@
+Prerequisites:
+
+//Install React Native CLI
+npm install -g react-native-cli
+//Create a new React Native project
+npx react-native init SmartInventoryApp
+cd SmartInventoryApp
+//Install necessary dependencies
+npm install react-navigation react-navigation-stack react-native-reanimated react-native-gesture-handler react-native-screens react-native-safe-area-context react-native-barcode-mask @react-native-community/viewpager
+//Install react-native-camera for barcode scanning
+npm install react-native-camera
+
+// App.js
+
+import React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import HomeScreen from './screens/HomeScreen';
+import InventoryScreen from './screens/InventoryScreen';
+import OrderScreen from './screens/OrderScreen';
+import ReportsScreen from './screens/ReportsScreen';
+import UserProfileScreen from './screens/UserProfileScreen';
+
+const Stack = createStackNavigator();
+
+function App() {
+  return (
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="Home">
+        <Stack.Screen name="Home" component={HomeScreen} />
+        <Stack.Screen name="Inventory" component={InventoryScreen} />
+        <Stack.Screen name="Orders" component={OrderScreen} />
+        <Stack.Screen name="Reports" component={ReportsScreen} />
+        <Stack.Screen name="UserProfile" component={UserProfileScreen} />
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
+}
+
+export default App;
+
+// HomeScreen.js
+
+import React from 'react';
+import { View, Text, Button } from 'react-native';
+
+const HomeScreen = ({ navigation }) => {
+  return (
+    <View>
+      <Text>Welcome to Smart Inventory App</Text>
+      <Button
+        title="Go to Inventory"
+        onPress={() => navigation.navigate('Inventory')}
+      />
+      {/* Add more buttons for other sections */}  // create more detailed UI components and functionalities based on your specific project requirements
+    </View>
+  );
+};
+
+export default HomeScreen;
+
+// InventoryScreen.js
+
+import React from 'react';
+import { View, Text } from 'react-native';
+
+const InventoryScreen = () => {
+  return (
+    <View>
+      <Text>Inventory Screen</Text>
+      {/* Add components for managing inventory */}
+    </View>
+  );
+};
+
+export default InventoryScreen;
+// OrderScreen.js
+
+import React from 'react';
+import { View, Text } from 'react-native';
+
+const OrderScreen = () => {
+  return (
+    <View>
+      <Text>Order Screen</Text>
+      {/* Add components for managing orders */}
+    </View>
+  );
+};
+
+export default OrderScreen;
+
+// ReportsScreen.js
+
+import React from 'react';
+import { View, Text } from 'react-native';
+
+const ReportsScreen = () => {
+  return (
+    <View>
+      <Text>Reports Screen</Text>
+      {/* Add components for generating and displaying reports */}
+    </View>
+  );
+};
+
+export default ReportsScreen;
+
+// UserProfileScreen.js
+
+import React from 'react';
+import { View, Text } from 'react-native';
+
+const UserProfileScreen = () => {
+  return (
+    <View>
+      <Text>User Profile Screen</Text>
+      {/* Add components for displaying and editing user profile */}
+    </View>
+  );
+};
+
+export default UserProfileScreen;
+
+// Remember to import these screens into your App.js file.
